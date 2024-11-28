@@ -31,4 +31,11 @@ SCREENS:
 
 ![Screenshot 2024-11-28 164901](https://github.com/user-attachments/assets/46d2fd31-8f87-414a-8785-48b3e39924cf)
 
+Token Generation:
+
+![Screenshot 2024-11-28 164917](https://github.com/user-attachments/assets/94b0880c-552b-48ff-8eca-63571a250157)
+
+
+![Screenshot 2024-11-28 164937](https://github.com/user-attachments/assets/2d3e909a-aed3-40ad-9ac4-40b5537028f2)
+
 
