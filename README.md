@@ -39,3 +39,7 @@ Token Generation:
 ![Screenshot 2024-11-28 164937](https://github.com/user-attachments/assets/2d3e909a-aed3-40ad-9ac4-40b5537028f2)
 
 
+Password Hashing and All User Details:
+
+![image](https://github.com/user-attachments/assets/bb7436c9-a065-4034-aff5-a6017392829e)
+
