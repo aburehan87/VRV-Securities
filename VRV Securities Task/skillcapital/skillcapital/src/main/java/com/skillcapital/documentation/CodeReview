@@ -1,0 +1,113 @@
+                                   [ C O D E                             R E V I E W ]
+    CREATED A BACK END FOR THE WEBSITE "VRV Securities"
+    USING JAVA, POSTGRESQL, SPRING DATA JPA SPRING SECURITY SPRING BOOT HIBERNATE JWT TOKENS POSTMAN LOMBOK AND MANY MORE TECH STACKS.
+
+
+ ------------------------------------------------Implementation Overview-------------------------------------------
+
+### 1. Architectural Design
+The project follows a layered architecture with a clear separation of concerns:
+- Controller Layer: Manages API endpoints for user interaction.
+- Service Layer: Implements business logic for CRUD operations.
+- Repository Layer: Handles database interactions using Spring Data JPA.
+- Entity Layer: Defines database schema and data model.
+- Configuration Layer: Manages security settings and other system configurations.
+- JWT Layer: Handles token generation, validation, and expiration for secure user authentication.
+
+---
+
+### 2. Key Features
+#### Authentication and Authorization
+- Passwords are encrypted using bcrypt for security.
+- Authentication is managed through JWT tokens, with a default expiration time of 1 day (~22 hours).
+- Role-based access is implemented (`USER`, `ADMIN`) to restrict access to sensitive endpoints.
+
+#### CRUD Functionalities
+- Comprehensive CRUD operations for Users.
+- API endpoints ensure secure and efficient data management through HTTP methods (GET, POST, PUT, DELETE).
+
+#### Database Integration
+- Uses PostgreSQL as the relational database.
+- Hibernate automatically creates and manages tables and columns based on entity definitions.
+
+#### Testing
+- Postman** was used for testing API endpoints and simulating user interactions during development.
+
+---
+
+### 3. Detailed Implementation Steps
+
+#### A. User Management
+1. User Entity:
+   Defines user attributes (e.g., username, email, password, roles) using annotations like `@Entity`, `@Id`, and `@Column`.
+   - Validation annotations ensure data integrity (`@NotNull`, `@Email`).
+
+2. UserService:
+   Contains business logic for CRUD operations and additional methods like `loadUserByUsername` for authentication.
+
+3. UserRepository:
+   Extends JpaRepository** to leverage Spring Data JPA for database interactions.
+
+4. UserController:
+   Provides RESTful endpoints for user operations like registration, login, and CRUD functionalities.
+
+5. AuthController:
+   Separately manages authentication, including login and registration endpoints.
+   - On registration, passwords are encrypted and stored as hashed values.
+   - On successful login, JWT tokens are generated and returned to the client.
+
+6. CustomUserDetails and CustomUserDetailsService:
+   - Custom implementations to integrate user roles and permissions into Spring Security.
+
+---
+
+#### B. Security Configuration
+1. JWT Package:
+   - JWTUtility: Handles token creation and validation.
+   - JwtFilter: Intercepts incoming requests to validate the JWT token before processing.
+   - JwtConfig: Manages token expiration and signing key configurations.
+
+2. SecurityConfiguration:
+   - Configures endpoints to allow/deny access using `.permitAll()` and `.antMatchers()`.
+   - Enforces secured access for sensitive operations using role-based permissions.
+
+---
+
+#### C. Additional Entities
+
+1. Entity Class: Defines the attributes and schema.
+2. Service Layer: Implements business logic for CRUD.
+3. Controller Layer: Manages API endpoints for CRUD operations.
+4. Repository Layer: Leverages JPA methods for database interactions.
+
+---
+
+### 4. Dependencies**
+The following dependencies were used to enhance development and streamline functionality:
+1. spring-boot-starter-jpa: Manages ORM and database interactions.
+2. spring-boot-starter-security: Provides authentication, authorization, and security features.
+3. spring-boot-starter-web: Simplifies REST API development.
+4. spring-boot-starter-test: Enables unit and integration testing.
+5. spring-security-test: Adds security-related testing capabilities.
+6. jjwt-api, jjwt-impl, jjwt-jackson: Manages JWT token generation, parsing, and validation.
+7. Lombok: Reduces boilerplate code by generating getters, setters, constructors, etc.
+8. jackson-databind: Efficient data binding for request/response payloads.
+9. PostgreSQL Driver: Enables connection to the PostgreSQL database.
+
+---
+
+### 5. Application Configuration**
+All configurations are stored in the `application.properties` file:
+- Database Configuration:
+  - `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`.
+- Hibernate Settings:
+  - `spring.jpa.hibernate.ddl-auto=update` (for table management).
+- JWT Settings:
+  - Token expiration and signing key.
+
+---
+
+### 6. Testing
+- Postman: Used extensively to validate API calls, test different user roles, and ensure token validation works seamlessly.
+
+

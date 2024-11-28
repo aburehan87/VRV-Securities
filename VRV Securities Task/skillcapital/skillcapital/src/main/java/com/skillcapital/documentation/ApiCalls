@@ -1,0 +1,21 @@
+                                                     U S E R
+
+
+
+METHODS                                 POSTMAN REQUEST                 API CALLS
+-------                                 ----------------                ----------
+
+FOR REGISTERING AND LOGIN:                                              /api/auth
+
+1. Register :                           POST                            /api/auth/register
+2. Login    :                           POST                            /api/auth/login
+3. Logout   :                           POST                            /api/auth/login
+
+FOR CRUD OPERATIONS:                                                    /api/users
+
+1. Find All Users:                      GET                             /api/users/all
+2. Get User By ID:                      GET                             /api/users/{id}
+3. Get User By Username:                GET                             /api/users/username/{username}
+4. Update User By ID:                   PUT                             /api/users/{id}
+5. Deleting User:                       DELETE                          /api/users/{id}
+
